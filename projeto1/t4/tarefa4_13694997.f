@@ -17,15 +17,15 @@
         termo=2*prec
         dtermo=2*dprec
         
-        if(x .ge. 2.0) then
+         if(x .ge. 2.0) then
                 write(*,*) "a serie diverge"
-        else if(x .le. 0.0) then    
+         else if(x .le. 0.0) then    
                 write(*,*) "fora do dominio"
         go to 10
         else
 c loop que calcula o ln em precisao simples
                 do while(abs(termo) .ge. prec)
-                        termo=(1.0-x)**n/n
+                        termo=((1.0-x)**n)/n
                         serie=serie-termo
                         n=n+1
                 end do
@@ -40,10 +40,10 @@ c loop que calcula o ln em dupla precisao
 
                 dif=abs(serie-log(x))
                 ddif=abs(dserie-dlog(dx))
-
+          
                 write(*,*) "O valor da serie eh:", serie
                 write(*,*) "serie-log(x)=", dif
-                write(*,*) "o valor da serie em dupla prec (dserie) eh:", dserie
+                write(*,*) "valor em dupla prec (dserie):", dserie
                 write(*,*) "dserie-dlog(x)=", ddif        
         end if
 
