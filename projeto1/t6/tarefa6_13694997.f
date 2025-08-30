@@ -50,12 +50,14 @@ c gero numeros aletorios que compoem um raio para a esfera que eu quero
                         r=rand()
                         aux=aux+r**2
                 end do
-c o meu raio eh menor ou igual que 1? se sim, adiciono 1 no meu contador de ptos no interior de um raio 1
+c o meu raio eh menor ou igual que 1? se sim, adiciono 1 no meu contador
+c de ptos no interior de um raio 1
                 if(sqrt(aux) .le. 1.0) then
                         n=n+1
                 end if
         end do
-c o volume contido em um raio unitario vai ser a razao entre os pts interno/pts totais*a area do meu cubo em d dimensoes
+c o volume contido em um raio unitario vai ser a razao entre os 
+c pts interno/pts totais*a area do meu cubo em d dimensoes
         v=2.0**id*(float(n)/float(m))     
         write(*,*) "para d=", id
         write(*,*) "volume=", v

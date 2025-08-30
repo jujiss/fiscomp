@@ -5,32 +5,35 @@
         read(*,*) r
         
 c loop para escrever as dimensoes e seus respectivos volumes num arq
-c aqui, foram abertos 3 arq diferentes para guardar os casos em que r=0.9,1.0 e
-c 1.1, pois esses valores serao usados no plot de um grafico
+c aqui, foram abertos 4 arq diferentes para guardar separadamente 
+c os casos em que r=0.9,1.0 e 1.1
+c pois esses valores serao usados no plot de um grafico
         if(r .eq. 0.9) then
                 open(1, file='dim-esferas09.dat')
                 do i=0,id
                         write(1,*) i, fgamma(i,r)
                 end do
-        end if
-        
-        if(r .eq. 1.0) then
+        else if(r .eq. 1.0) then
                 open(2, file='dim-esferas.dat')
                 do i=0,id
                         write(2,*) i, fgamma(i,r)
                 end do
-        end if
-
-        if(r .eq. 1.1) then
-                open(3, file='dim-esferas.11')
+        else if(r .eq. 1.1) then
+                open(3, file='dim-esferas11.dat')
                 do i=0,id
                         write(3,*) i, fgamma(i,r)
                 end do
-        end if
-
+        else
+        	open(4, file='dim-a.dat')
+        	do i=0,id
+        		write(4,*) i, fgamma(i,r)
+        	end do
+	end if
+        
         close(1)
         close(2)
         close(3)
+        close(4)
 
         end
 
